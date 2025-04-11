@@ -1,0 +1,13 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Error from "./error.astro";
+---
+
+<Layout>
+    <Error
+        title="No internet connection found"
+        page="offline"
+        description="Kindly check your internet connection and try to reconnect."
+        showBackbutton={false}
+    />
+</Layout>

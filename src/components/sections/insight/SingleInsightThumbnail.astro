@@ -1,0 +1,23 @@
+---
+const { singleInsights } = Astro.props;
+---
+
+<div>
+    {
+        singleInsights.fields.thumbnailImage && (
+            <section class="flex flex-col gap-1 items-center">
+                <img
+                    src={
+                        "https:" +
+                        singleInsights.fields.thumbnailImage.fields.file.url
+                    }
+                    alt={singleInsights.fields.thumbnailImage.fields.title}
+                    class="w-full h-full max-w-5xl  object-contain"
+                />
+                <span class="italic text-gray-500 text-sm">
+                    {singleInsights.fields.thumbnailImage.fields.title}
+                </span>
+            </section>
+        )
+    }
+</div>

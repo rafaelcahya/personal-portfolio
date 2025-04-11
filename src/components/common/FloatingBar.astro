@@ -1,0 +1,31 @@
+---
+const navs = [
+    {
+        name: "About",
+        link: "/about",
+    },
+    {
+        name: "Project",
+        link: "/project",
+    },
+    {
+        name: "Insights",
+        link: "/insight",
+    },
+];
+---
+
+<div
+    class="fixed left-1/2 -translate-x-1/2 top-5 flex gap-4 bg-zinc-900 drop-shadow-xl text-white text-sm px-6 rounded-2xl z-20 w-max"
+>
+    {
+        navs.map((nav) => (
+            <a
+                href={nav.link}
+                class="hover:text-blue-500 py-1.5 px-3 my-1.5 duration-100"
+            >
+                {nav.name}
+            </a>
+        ))
+    }
+</div>

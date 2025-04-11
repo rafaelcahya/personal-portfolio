@@ -1,0 +1,66 @@
+---
+const { singleProjects } = Astro.props;
+
+// Fungsi deteksi warna terang
+function isLightColor(hexColor:any) {
+    const rgb = parseInt(hexColor.slice(1), 16);
+    const r = (rgb >> 16) & 0xff;
+    const g = (rgb >> 8) & 0xff;
+    const b = rgb & 0xff;
+    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+    return brightness > 128;
+}
+---
+
+<div class="flex flex-col gap-10 tracking-[0.015rem] w-full max-w-2xl mx-auto">
+    <section>
+        <p>{singleProjects.fields.description}</p>
+    </section>
+
+    <div class="flex flex-col gap-5">
+        <p class="text-zinc-500">Typography</p>
+        <p>{singleProjects.fields.fontname}</p>
+    </div>
+
+    <div class="flex flex-col gap-5">
+        <p class="text-zinc-500">Color Palette</p>
+
+        {
+            singleProjects.fields.colorPalette && (
+                <div class="flex flex-wrap gap-5 max-w-[520px]">
+                    {singleProjects.fields.colorPalette.map((color:any) => {
+                        const isLight = isLightColor(color);
+                        return (
+                            <div
+                                class="flex flex-col items-center gap-3"
+                            >
+                                <div
+                                    class="color-circle w-[70px] h-[70px] rounded-full cursor-pointer flex items-center justify-center transition-transform active:scale-90"
+                                    style={{
+                                        background: `linear-gradient(to top left, ${color}80, ${color})`,
+                                        color: isLight ? "black" : "white",
+                                    }}
+                                    data-color={color}
+                                    title="Click to copy"
+                                />
+                            </div>
+                        );
+                    })}
+                </div>
+            )
+        }
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const circles = document.querySelectorAll(".color-circle");
+
+        circles.forEach((el) => {
+            el.addEventListener("click", () => {
+                const color = el.getAttribute("data-color");
+                navigator.clipboard.writeText(color ?? "");
+            });
+        });
+    });
+</script>

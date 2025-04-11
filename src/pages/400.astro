@@ -1,0 +1,13 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Error from "./error.astro";
+---
+
+<Layout>
+    <Error
+        title="Oops, Something’s Not Right!"
+        page="400"
+        description="It seems we’ve run into a problem. Nothing to worry about though! We've identified the issues and have a solution to help you get back on track."
+        showBackbutton={true}
+    />
+</Layout>

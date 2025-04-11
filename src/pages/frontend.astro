@@ -1,0 +1,86 @@
+---
+import FloatingBar from "../components/common/FloatingBar.astro";
+import Layout from "../layouts/Layout.astro";
+import { getEntries } from "../lib/contentful";
+
+const projects = await getEntries("frontend");
+
+const sortedProjects = [...(projects || [])]
+    .filter((p) => !!p?.fields?.date)
+    .sort((a, b) => {
+        const aDate = new Date(String(a.fields.date)).getTime();
+        const bDate = new Date(String(b.fields.date)).getTime();
+        return bDate - aDate;
+    });
+---
+
+<Layout>
+    <FloatingBar />
+    <div
+        data-aos="fade"
+        class="flex flex-col gap-10 md:gap-20 py-44 px-5 sm:px-10 lg:px-20 2xl:px-40 mx-auto w-full max-w-[90rem]"
+    >
+        <header
+            class="flex flex-col gap-2 items-start md:items-center text-start md:text-center"
+        >
+            <p
+                class="text-zinc-500 text-[1rem] sm:text-[1.2rem] tracking-[0.015rem]"
+            >
+                My Projects
+            </p>
+            <h1
+                class="font-medium text-zinc-900 text-[1.5rem] sm:text-[2.5rem] leading-8 sm:leading-[3.2rem] tracking-[0.015rem] w-full lg:w-1/2"
+            >
+                Turning concepts into sleek,{" "}
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-purple-400 tracking-[0.015rem]"
+                >
+                    functional web designs
+                </span>
+            </h1>
+        </header>
+        <section
+            class="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 md:gap-20 mx-auto"
+        >
+            {
+                sortedProjects.map((article: any) => (
+                    <div>
+                        <a
+                            href={`/frontend/${article.fields.slug}`}
+                            class="outline-none rounded-xl w-full sm:w-[325px] lg:w-[400px]"
+                        >
+                            {article.fields.thumbnailImage && (
+                                <div class="group flex flex-col gap-3 h-full">
+                                    <div class="flex-1 flex flex-col gap-1">
+                                        <p class="font-medium text-[1rem] md:text-[1.25rem] text-zinc-900 group-hover:text-blue-500 duration-100">
+                                            {article.fields.title}
+                                        </p>
+                                        <p class="text-[1rem] text-zinc-500 line-clamp-2">
+                                            {article.fields.outline}
+                                        </p>
+                                    </div>
+                                    <div class="group-hover:scale-105 duration-200">
+                                        <img
+                                            src={
+                                                "https:" +
+                                                article.fields.thumbnailImage
+                                                    .fields.file.url
+                                            }
+                                            alt={
+                                                article.fields.thumbnailImage
+                                                    .fields.title
+                                            }
+                                            class="lazyload rounded-xl"
+                                            loading="lazy"
+                                            decoding="async"
+                                        />
+                                    </div>
+                                </div>
+                            )}
+                        </a>
+                    </div>
+                ))
+            }
+        </section>
+    </div>
+</Layout>

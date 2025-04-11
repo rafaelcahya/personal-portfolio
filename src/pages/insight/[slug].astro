@@ -1,0 +1,45 @@
+---
+import { getEntries } from "../../lib/contentful";
+import Layout from "../../layouts/Layout.astro";
+
+import FloatingBar from "../../components/common/FloatingBar.astro";
+import SingleInsightTitle from "../../components/sections/insight/SingleInsightTitle.astro";
+import SingleInsightThumbnail from "../../components/sections/insight/SingleInsightThumbnail.astro";
+import SingleInsightContent from "../../components/sections/insight/SingleInsightContent.astro";
+import Footer from "../../components/common/Footer.astro";
+
+const { slug } = Astro.params;
+const insights = await getEntries("uniqueCode");
+const singleInsight = insights.find((item) => item.fields.slug === slug);
+
+export async function getStaticPaths() {
+    const insights = await getEntries("uniqueCode");
+
+    return insights.map((item) => ({
+        params: { slug: item.fields.slug },
+        props: { singleProject: item },
+    }));
+}
+---
+
+<Layout>
+    <FloatingBar />
+    <div data-aos="fade" class="flex flex-col gap-10 py-44 px-5">
+        <div class="flex flex-col gap-10 md:gap-20">
+            <div>
+                <SingleInsightTitle singleInsights={singleInsight} />
+            </div>
+            <div>
+                <SingleInsightThumbnail singleInsights={singleInsight} />
+            </div>
+        </div>
+        <div
+            class="flex flex-col gap-20 w-full max-w-2xl mx-auto tracking-[0.015rem]"
+        >
+            <div>
+                <SingleInsightContent singleInsights={singleInsight} />
+            </div>
+        </div>
+    </div>
+    <Footer/>
+</Layout>

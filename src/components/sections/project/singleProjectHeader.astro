@@ -1,0 +1,56 @@
+---
+const { singleProjects } = Astro.props;
+const { fields } = singleProjects || {};
+
+const { title, hyperlink, linkname, liveStatus, headerMockup } = fields || {};
+
+const baseBtnClass =
+    "text-sm sm:text-base text-pink-500 rounded-full cursor-pointer";
+
+let statusText = "";
+let statusStyle = "";
+
+if (liveStatus === "Design Published") {
+    statusText = `View ${linkname}`;
+    statusStyle = "text-pink-500";
+} else if (liveStatus === "Website Hosted") {
+    statusText = "Live in production";
+    statusStyle = "text-emerald-500";
+}
+---
+
+<div class="w-full max-w-5xl flex flex-col mx-auto gap-5">
+    <section
+        class="flex flex-col md:flex-row justify-between items-start md:items-center"
+    >
+        <p class="font-medium text-[24px] sm:text-[39px] text-zinc-900">
+            {title}
+        </p>
+        {
+            statusText && hyperlink && (
+                <a
+                    href={hyperlink}
+                    target="_blank"
+                    rel="noreferrer"
+                    class={`${baseBtnClass} ${statusStyle}`}
+                >
+                    {statusText}
+                </a>
+            )
+        }
+    </section>
+
+    {
+        headerMockup?.fields?.file?.url && (
+            <section class="flex justify-center">
+                <img
+                    src={`https:${headerMockup.fields.file.url}`}
+                    alt={`${title} header mockup`}
+                    class="rounded-lg"
+                    loading="lazy"
+                    decoding="async"
+                />
+            </section>
+        )
+    }
+</div>

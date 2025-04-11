@@ -1,0 +1,107 @@
+@font-face {
+    font-family: outfit-medium;
+    src: url("https://res.cloudinary.com/djvyifjgz/raw/upload/v1727273598/Outfit-Medium_m4fd66.ttf");
+    font-display: swap;
+}
+
+.outfit-medium {
+    font-family: outfit-medium;
+}
+
+@font-face {
+    font-family: outfit-semibold;
+    src: url("https://res.cloudinary.com/djvyifjgz/raw/upload/v1727273598/Outfit-SemiBold_hmnxzb.ttf");
+    font-display: swap;
+}
+
+.outfit-semibold {
+    font-family: outfit-semibold;
+}
+
+@font-face {
+    font-family: sourcecodepro;
+    src: url("https://res.cloudinary.com/djvyifjgz/raw/upload/v1683364919/SourceCodePro-Regular_txezup.ttf");
+    font-display: swap;
+}
+
+.sourcecodepro {
+    font-family: sourcecodepro;
+}
+
+.markdown h2 {
+    font-family: outfit-semibold;
+    font-size: 1.35rem;
+}
+
+.markdown h3 {
+    font-family: outfit-semibold;
+    font-size: 1.15rem;
+}
+
+.markdown h4 {
+    font-family: outfit-semibold;
+    font-size: 1.05rem;
+}
+
+.markdown em {
+    font-family: sourcecodepro;
+    font-style: normal;
+    font-size: 0.9rem;
+    background-color: #eff6ff !important;
+    padding: 3px 2px;
+    border-radius: 4px;
+}
+
+.markdown em::after,
+.markdown em::before {
+    content: "`";
+}
+
+.markdown pre {
+    font-size: 0.9rem;
+}
+
+.markdown ol,
+.markdown ul {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.markdown ol {
+    list-style-type: decimal;
+}
+
+.markdown ul {
+    list-style-type: disc;
+}
+
+.markdown img {
+    margin: 20px 0;
+}
+
+.markdown p,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+    margin-top: 20px;
+}
+
+.markdown hr {
+    margin: 40px 0;
+    border-color: #e2e8f0;
+}
+
+.markdown table {
+    margin: 20px 0;
+}
+
+.markdown th {
+    text-align: left;
+}
+
+.markdown th,
+.markdown td {
+    border-bottom: 1px solid #e4e4e7;
+    padding: 10px 20px 10px 0;
+}

@@ -1,0 +1,47 @@
+---
+const { singleProjects } = Astro.props;
+
+import Markdown from "../../../../components/markdown/Markdown";
+import GithubLogo from "../../../../assets/GithubLogo";
+import "../../../../styles/Markdown.css";
+---
+
+<section
+    class="flex flex-col gap-20 text-[1.05rem] text-zinc-900 leading-8 w-full max-w-2xl mx-auto"
+>
+    <div class="markdown text-[1.05rem] text-zinc-900 leading-7">
+        <Markdown client:load content={singleProjects.fields.content} />
+    </div>
+    {
+        singleProjects.fields.tools && (
+            <section class="flex flex-col gap-5">
+                <p class="text-zinc-500 tracking-[0.015rem]">Testing Tools</p>
+                <div class="flex gap-10 lg:gap-20">
+                    {singleProjects.fields.tools.map((tool: any) => (
+                        <p class="tracking-[0.015rem]">
+                            {tool.fields.toolName}
+                        </p>
+                    ))}
+                </div>
+            </section>
+        )
+    }
+    {
+        singleProjects.fields.repositoryUrl && (
+            <section class="flex flex-col gap-5">
+                <p class="text-zinc-500 tracking-[0.015rem]">
+                    Check the repository
+                </p>
+                <a
+                    href={singleProjects.fields.repositoryUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="group flex items-center gap-2 w-max cursor-pointer"
+                >
+                    <GithubLogo />
+                    {singleProjects.fields.linkname}
+                </a>
+            </section>
+        )
+    }
+</section>

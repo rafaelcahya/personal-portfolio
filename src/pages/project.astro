@@ -1,0 +1,79 @@
+---
+import FloatingBar from "../components/common/FloatingBar.astro";
+import Layout from "../layouts/Layout.astro";
+
+const projectMenu = [
+    {
+        name: "Design",
+        description:
+            "Experience the power of great design, crafted for real-world users.",
+        link: "design",
+        icon: "https://res.cloudinary.com/djvyifjgz/image/upload/v1742015474/xu0rshxmawooh71v5dii.svg",
+    },
+    {
+        name: "Frontend Development",
+        description: "Take a peek at my Frontend work, check it out!",
+        link: "frontend",
+        icon: "https://res.cloudinary.com/djvyifjgz/image/upload/v1742015474/eixy6vs1k8qkz9gjlo5w.svg",
+    },
+    {
+        name: "QA Manual & Automation",
+        description:
+            "Uncover the behind-the-scenes magic of QA that keeps everything running smoothly.",
+        link: "qualityassurance",
+        icon: "https://res.cloudinary.com/djvyifjgz/image/upload/v1742015474/ed9qxnuh8b81riq0x8xw.svg",
+    },
+];
+---
+
+<Layout>
+    <FloatingBar />
+    <div
+        data-aos="fade"
+        data-aos-duration="400"
+        class="flex flex-col gap-10 md:gap-20 py-44 px-3 sm:px-10 lg:px-20 2xl:px-40"
+    >
+        <header class="flex flex-col gap-2 text-start md:text-center">
+            <p
+                class="text-zinc-500 text-[1rem] sm:text-[1.2rem] tracking-[0.015rem]"
+            >
+                My Projects
+            </p>
+            <h1
+                class="font-medium text-zinc-900 text-[1.5rem] sm:text-[2.5rem] leading-8 sm:leading-[3.2rem] tracking-[0.015rem]"
+            >
+                Where Every Pixel Tells a Story
+            </h1>
+        </header>
+        <section class="flex flex-wrap gap-5 justify-center">
+            {
+                projectMenu.map((project: any) => (
+                    <div class="bg-zinc-50 p-5 w-full lg:w-[350px] rounded-2xl">
+                        <a
+                            href={"/" + project.link}
+                            class="group flex flex-col gap-3"
+                        >
+                            <img
+                                src={project.icon}
+                                alt=""
+                                width="40"
+                                height="40"
+                                loading="lazy"
+                                decoding="async"
+                                class="w-[40px] h-[40px] bg-zinc-200/50 rounded-full p-2"
+                            />
+                            <div class="flex flex-col gap-1">
+                                <p class="font-medium text-zinc-700 group-hover:text-blue-500 text-[1.15rem] tracking-[0.015rem] duration-100">
+                                    {project.name}
+                                </p>
+                                <p class="text-zinc-500 lg:text-[rem] tracking-[0.015rem]">
+                                    {project.description}
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                ))
+            }
+        </section>
+    </div>
+</Layout>

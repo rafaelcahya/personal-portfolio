@@ -1,0 +1,66 @@
+---
+import ArrowIcon from "../../assets/ArrowIcon";
+import { getEntries } from "../../lib/contentful";
+
+const profiles = await getEntries("profile");
+---
+
+<div class="flex flex-col items-center gap-4 mx-auto text-zinc-800 pb-20 px-3">
+    <div class="flex items-center gap-8">
+        {
+            [
+                { label: "About", href: "/about" },
+                { label: "Project", href: "/project" },
+                { label: "Insights", href: "/insight" },
+            ].map((item) => (
+                <div class="flex items-center gap-2">
+                    <a
+                        href={item.href}
+                        class="hover:text-blue-500 duration-100"
+                    >
+                        {item.label}
+                    </a>
+                    <ArrowIcon />
+                </div>
+            ))
+        }
+    </div>
+    <p class="w-full sm:w-[400px] text-center text-zinc-500">
+        Thanks for diving into my world. The future is built by dreamers and
+        doers — let’s create something legendary.
+    </p>
+
+    {
+        profiles.map((profile: any) => (
+            <div class="flex items-center gap-4">
+                {profile.fields?.contact?.map((contact: any) => {
+                    const isEmail = contact.fields?.title === "Email";
+                    const href = isEmail
+                        ? `mailto:${contact.fields?.hyperlink}`
+                        : contact.fields?.hyperlink;
+                    const src = `https:${contact.fields?.logo?.fields?.file?.url}`;
+                    const title = contact.fields?.title ?? "Contact";
+
+                    return (
+                        <a
+                            href={href}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={`Go to ${title}`}
+                        >
+                            <img
+                                src={src}
+                                alt={title}
+                                width={24}
+                                height={24}
+                                class="hover:rotate-45 duration-200"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </a>
+                    );
+                })}
+            </div>
+        ))
+    }
+</div>

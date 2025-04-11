@@ -1,0 +1,37 @@
+---
+const { singleProjects } = Astro.props;
+---
+
+<section>
+    {
+        singleProjects.fields.preview.map((preview: any) => {
+            const file = preview.fields.file;
+            const contentType = file.contentType;
+
+            if (contentType.includes("video")) {
+                return (
+                    <video
+                        controls
+                        class="w-full max-w-[90rem] mx-auto rounded-xl"
+                    >
+                        <source src={`https:${file.url}`} type={contentType} />
+                    </video>
+                );
+            } else if (contentType.includes("image")) {
+                return (
+                    <img
+                        src={`https:${file.url}`}
+                        alt={preview.fields.title}
+                        class="w-full max-w-5xl mx-auto rounded-xl"
+                    />
+                );
+            } else {
+                return (
+                    <p class="text-center text-sm text-red-500">
+                        ⚠️ Unsupported media type: {contentType}
+                    </p>
+                );
+            }
+        })
+    }
+</section>

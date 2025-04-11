@@ -1,0 +1,93 @@
+---
+import "../styles/global.css";
+import FloatingBar from "../components/common/FloatingBar.astro";
+import { getEntries } from "../lib/contentful";
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/common/Footer.astro"
+
+const projects = await getEntries("uiux");
+
+const sortedProjects = [...(projects || [])]
+    .filter((p) => !!p?.fields?.date)
+    .sort((a, b) => {
+        const aDate = new Date(String(a.fields.date)).getTime();
+        const bDate = new Date(String(b.fields.date)).getTime();
+        return bDate - aDate;
+    });
+---
+
+<Layout>
+    <FloatingBar />
+    <div
+        data-aos="fade"
+        data-aos-duration="400"
+        class="flex flex-col gap-10 md:gap-20 py-44 px-5 sm:px-10 lg:px-20 2xl:px-40 w-full max-w-[90rem] mx-auto"
+    >
+        <header
+            class="flex flex-col gap-2 items-start md:items-center text-start md:text-center"
+        >
+            <p class="text-zinc-500 text-[1rem] sm:text-[1.2rem]">
+                My Projects
+            </p>
+            <h1
+                class="font-medium text-zinc-900 text-[1.5rem] sm:text-[2.5rem] leading-8 sm:leading-[3.2rem] w-full lg:w-3/4 xl:w-1/2"
+            >
+                Learn the process of turning ideas into
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-purple-400"
+                >
+                    tangible designs
+                </span>
+            </h1>
+        </header>
+
+        <section
+            class="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 md:gap-20 mx-auto"
+        >
+            {
+                sortedProjects.map((project: any) => {
+                    const { title, outline, slug, thumbnailImage } =
+                        project.fields;
+                    const imageUrl = thumbnailImage?.fields?.file?.url
+                        ? "https:" + thumbnailImage.fields.file.url
+                        : "";
+                    const imageAlt =
+                        thumbnailImage?.fields?.title ?? title ?? "Project";
+
+                    return (
+                        <div>
+                            <a
+                                href={`/design/${slug}`}
+                                class="outline-none rounded-xl w-full sm:w-[325px] lg:w-[400px] group"
+                            >
+                                <div class="flex flex-col gap-3">
+                                    <div class="flex flex-col gap-1 w-full">
+                                        <p class="font-medium text-[1rem] md:text-[1.25rem] text-zinc-900 group-hover:text-blue-500 duration-100">
+                                            {title}
+                                        </p>
+                                        <p class="text-[1rem] text-zinc-500 line-clamp-2">
+                                            {outline}
+                                        </p>
+                                    </div>
+
+                                    {imageUrl && (
+                                        <div class="group-hover:scale-105 duration-200">
+                                            <img
+                                                src={imageUrl}
+                                                alt={imageAlt}
+                                                class="lazyload rounded-lg"
+                                                loading="lazy"
+                                                decoding="async"
+                                            />
+                                        </div>
+                                    )}
+                                </div>
+                            </a>
+                        </div>
+                    );
+                })
+            }
+        </section>
+    </div>
+    <Footer />
+</Layout>

@@ -1,0 +1,34 @@
+---
+import "../styles/global.css"
+import "../styles/font.css"
+import "../styles/markdown.css"
+import "../styles/animation.css"
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" href="/favicon.svg" />
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <meta name="generator" content="Astro" />
+        <title>Astro AOS</title>
+    </head>
+    <body>
+        <slot />
+        <script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script is:inline>
+            AOS.init();
+        </script>
+    </body>
+</html>
+
+<style>
+    html,
+    body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>

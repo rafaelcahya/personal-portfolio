@@ -1,0 +1,34 @@
+---
+const { singleInsights } = Astro.props;
+---
+
+<div class="flex flex-col items-start md:items-center gap-1 md:gap-5">
+    <div class="hidden sm:flex flex-wrap gap-x-3 gap-y-2 rounded-xl">
+        {
+            singleInsights.fields.tags
+                .slice(0, 2)
+                .map((tag: any) => (
+                    <p class="bg-zinc-100 text-zinc-500 px-4 py-2 rounded-full text-[.875rem]">
+                        {tag}
+                    </p>
+                ))
+        }
+    </div>
+    <h1
+        class="text-[24px] md:text-[39px] text-zinc-900 text-left md:text-center font-medium tracking-[0.015rem] w-full md:w-3/4 lg:w-4/5"
+    >
+        {singleInsights.fields.title}
+    </h1>
+    <p class="text-zinc-500">
+        {
+            new Date(singleInsights.fields.publishedDate).toLocaleDateString(
+                "en-GB",
+                {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                }
+            )
+        }
+    </p>
+</div>
