@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+
+<url>
+  <loc>https://rafaelcahya.space/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/about/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/project/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/insight/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/design/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/frontend/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/qualityassurance/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/insight/the-qa-playbook-testing-quadrants-for-maximum-impact/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/insight/the-test-pyramid-your-blueprint-for-reliable-releases/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/insight/entry-and-exit-criteria-the-recipe-for-perfect-software-testing/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/insight/error-guessing-the-art-of-predicting-software-bugs/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/insight/state-transition-testing-the-roller-coaster-ride-of-software-quality/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/insight/decision-table-testing-the-qa-blueprint-for-complex-logic/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/insight/testing-on-the-edge-how-boundary-value-analysis-saves-the-day/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/insight/simplify-your-testing-game-with-equivalence-partitioning/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/insight/testing-made-simple-the-7-testing-principles-made-easy/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/insight/the-root-cause-error-failure-and-defect-whats-the-difference/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/insight/facing-tight-deadlines-heres-how-to-convince-stakeholders-of-the-importance/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/insight/facing-unexpected-delays-in-the-testing-phase/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/insight/return/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/insight/promises/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/design/kanban-mobile/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/design/kanban-board/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/design/leftover-food-app/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/frontend/wedding-photography-lumiere/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/frontend/garageplus62/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/qualityassurance/how-to-write-a-good-test-case/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/qualityassurance/how-i-wrote-my-bug-report/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/qualityassurance/handle-bug-in-production/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/qualityassurance/api-automation-gorest-robot-framework-jenkins/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/qualityassurance/json-placeholder-k6/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/qualityassurance/saucedemo-cypress-cucumber/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/qualityassurance/automation-teststore-robot-framework-jenkins/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/qualityassurance/automation-teststore-playwright-cucumber/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://rafaelcahya.space/qualityassurance/automation-teststore-webdriverio-jenkins/</loc>
+  <lastmod>2025-04-11T11:01:59+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>
