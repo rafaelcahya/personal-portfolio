@@ -28,7 +28,7 @@ export default function QAList({ articles }) {
     const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
     return (
-        <div data-aos="fade" className="flex flex-col gap-10 md:gap-20 py-44 px-5 sm:px-10 lg:px-20 2xl:px-40">
+        <div data-aos="fade" className="flex flex-col gap-10 md:gap-20 py-32 sm:py-44 px-5 sm:px-10 lg:px-20 2xl:px-40">
             <header className="flex flex-col gap-2 items-start md:items-center text-start md:text-center">
                 <p className="text-zinc-500 text-[1rem] sm:text-[1.2rem] tracking-[0.015rem]">
                     My Projects
