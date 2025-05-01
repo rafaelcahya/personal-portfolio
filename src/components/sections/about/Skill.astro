@@ -2,14 +2,19 @@
 const { articles } = Astro.props;
 ---
 
-<section data-aos="fade" data-aos-duration="400" class="flex flex-col gap-5">
+<section
+    data-aos="fade-up"
+    data-aos-duration="400"
+    data-aos-delay="300"
+    class="flex flex-col gap-5"
+>
     <p class="font-medium text-[24px] text-zinc-900">Skills</p>
     {
         articles.map((article: any) => (
             <div class="flex flex-wrap gap-2">
                 {article.fields.skills?.map((skill: any) => (
                     <div>
-                        <p class="text-sm px-4 py-2 bg-zinc-100 text-zinc-900 w-max rounded-full">
+                        <p class="text-sm px-4 py-2 bg-orange-100 text-zinc-900 w-max rounded-full">
                             {skill}
                         </p>
                     </div>

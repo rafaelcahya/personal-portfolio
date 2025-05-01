@@ -18,10 +18,12 @@ const sortedProjects = [...(projects || [])]
     <FloatingBar />
     <div
         data-aos="fade"
-        class="flex flex-col gap-10 md:gap-20 py-32 sm:py-44 px-5 sm:px-10 lg:px-20 2xl:px-40 mx-auto w-full max-w-[90rem]"
+        class="flex flex-col gap-10 md:gap-20 py-44 pb-56 px-5 sm:px-10 lg:px-20 2xl:px-40 mx-auto w-full max-w-[90rem]"
     >
         <header
-            class="flex flex-col gap-2 items-start md:items-center text-start md:text-center"
+            data-aos="fade-up"
+            data-aos-duration="400"
+            class="flex flex-col gap-2 w-full md:w-[900px] mx-auto"
         >
             <p
                 class="text-zinc-500 text-[1rem] sm:text-[1.2rem] tracking-[0.015rem]"
@@ -29,7 +31,7 @@ const sortedProjects = [...(projects || [])]
                 My Projects
             </p>
             <h1
-                class="font-medium text-zinc-900 text-[1.5rem] sm:text-[2.5rem] leading-8 sm:leading-[3.2rem] tracking-[0.015rem] w-full lg:w-1/2"
+                class="text-zinc-900 text-[2rem] sm:text-[2.5rem] md:text-[4rem] leading-[2.5rem] sm:leading-[3rem] md:leading-[4.5rem]"
             >
                 Turning concepts into sleek,{" "}
                 <span
@@ -39,46 +41,44 @@ const sortedProjects = [...(projects || [])]
                 </span>
             </h1>
         </header>
-        <section
-            class="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 md:gap-20 mx-auto"
-        >
+        <section class="flex flex-wrap gap-20 justify-center">
             {
-                sortedProjects.map((article: any) => (
-                    <div>
-                        <a
-                            href={`/frontend/${article.fields.slug}`}
-                            class="outline-none rounded-xl w-full sm:w-[325px] lg:w-[400px]"
-                        >
-                            {article.fields.thumbnailImage && (
-                                <div class="group flex flex-col gap-3 h-full">
-                                    <div class="flex-1 flex flex-col gap-1">
-                                        <p class="font-medium text-[1rem] md:text-[1.25rem] text-zinc-900 group-hover:text-blue-500 duration-100">
-                                            {article.fields.title}
-                                        </p>
-                                        <p class="text-[1rem] text-zinc-500 line-clamp-2">
-                                            {article.fields.outline}
-                                        </p>
-                                    </div>
-                                    <div class="group-hover:scale-105 duration-200">
-                                        <img
-                                            src={
-                                                "https:" +
-                                                article.fields.thumbnailImage
-                                                    .fields.file.url
-                                            }
-                                            alt={
-                                                article.fields.thumbnailImage
-                                                    .fields.title
-                                            }
-                                            class="lazyload rounded-xl"
-                                            loading="lazy"
-                                            decoding="async"
-                                        />
-                                    </div>
+                sortedProjects.map((article: any, index: number) => (
+                    <a
+                        data-aos="fade-up"
+                        data-aos-duration="400"
+                        data-aos-delay={index * 150}
+                        href={`/frontend/${article.fields.slug}`}
+                    >
+                        {article.fields.thumbnailImage && (
+                            <div class="group flex flex-col gap-3 w-full sm:w-[500px] h-full">
+                                <div class="flex-1 flex flex-col gap-1">
+                                    <p class="font-medium text-[1.2rem] sm:text-[1.4rem] text-zinc-900 group-hover:text-orange-500 duration-200">
+                                        {article.fields.title}
+                                    </p>
+                                    <p class="text-[1rem] text-zinc-500 line-clamp-3 w-full">
+                                        {article.fields.outline}
+                                    </p>
                                 </div>
-                            )}
-                        </a>
-                    </div>
+                                <div class="flex-1 bg-white p-2 shadow-xl group-hover:shadow-zinc-500/15 shadow-zinc-500/10 rounded-2xl duration-200">
+                                    <img
+                                        src={
+                                            "https:" +
+                                            article.fields.thumbnailImage.fields
+                                                .file.url
+                                        }
+                                        alt={
+                                            article.fields.thumbnailImage.fields
+                                                .title
+                                        }
+                                        class="lazyload rounded-xl"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                </div>
+                            </div>
+                        )}
+                    </a>
                 ))
             }
         </section>

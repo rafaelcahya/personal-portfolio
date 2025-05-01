@@ -28,8 +28,15 @@ export default function QAList({ articles }) {
     const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
     return (
-        <div data-aos="fade" className="flex flex-col gap-10 md:gap-20 py-32 sm:py-44 px-5 sm:px-10 lg:px-20 2xl:px-40">
-            <header className="flex flex-col gap-2 items-start md:items-center text-start md:text-center">
+        <div
+            data-aos="fade"
+            className="flex flex-col gap-10 md:gap-20 py-32 sm:py-44 px-5 sm:px-10 lg:px-20 2xl:px-40"
+        >
+            <header
+                data-aos="fade-up"
+                data-aos-duration="400"
+                className="flex flex-col gap-2 items-start md:items-center text-start md:text-center"
+            >
                 <p className="text-zinc-500 text-[1rem] sm:text-[1.2rem] tracking-[0.015rem]">
                     My Projects
                 </p>
@@ -41,14 +48,18 @@ export default function QAList({ articles }) {
                 </h1>
             </header>
 
-            <div className="flex gap-4 justify-center items-center">
+            <div
+                data-aos="fade-up"
+                data-aos-duration="400"
+                className="flex gap-4 justify-center items-center"
+            >
                 {["all", "manual", "automation"].map((type) => (
                     <button
                         key={type}
                         onClick={() => setFilter(type)}
                         className={`px-4 py-2 rounded-full text-sm border cursor-pointer duration-200 ${
                             filter === type
-                                ? "bg-blue-500 text-white border-blue-500"
+                                ? "bg-orange-500 text-white border-orange-500"
                                 : "bg-white text-zinc-700 border-zinc-300 hover:bg-zinc-100"
                         }`}
                     >
@@ -59,7 +70,12 @@ export default function QAList({ articles }) {
 
             <section className="flex flex-col mx-auto gap-5">
                 {filteredArticles.map((article, i) => (
-                    <div key={i}>
+                    <div
+                        key={i}
+                        data-aos="fade-up"
+                        data-aos-duration="400"
+                        data-aos-delay={i * 150}
+                    >
                         <a
                             href={`/qualityassurance/${article.fields.slug}`}
                             className="group flex flex-col gap-2 w-full md:w-[600px] duration-200 outline-none border-b border-zinc-200 pb-5"

@@ -20,17 +20,18 @@ const sortedProjects = [...(projects || [])]
 <Layout>
     <FloatingBar />
     <div
-        data-aos="fade"
         class="flex flex-col gap-10 md:gap-20 py-32 sm:py-44 px-5 sm:px-10 lg:px-20 2xl:px-40 tracking-[0.015rem]"
     >
         <header
-            class="flex flex-col gap-2 items-start md:items-center text-left md:text-center"
+            data-aos="fade-up"
+            data-aos-duration="400"
+            class="flex flex-col gap-2 w-full md:w-[900px] mx-auto"
         >
             <p class="text-zinc-500 text-[1rem] sm:text-[1.2rem]">
                 My Insights
             </p>
             <h1
-                class="font-medium text-zinc-900 text-[1.5rem] sm:text-[2.5rem] leading-8 sm:leading-[3.2rem] w-full lg:w-1/2"
+                class="ttext-zinc-900 text-[2rem] sm:text-[2.5rem] md:text-[4rem] leading-[2.5rem] sm:leading-[3rem] md:leading-[4.5rem]"
             >
                 Being{" "}
                 <span
@@ -43,9 +44,12 @@ const sortedProjects = [...(projects || [])]
         </header>
         <div class="flex flex-col mx-auto gap-5">
             {
-                sortedProjects.map((article: any) => (
+                sortedProjects.map((article: any, i: number) => (
                     <div>
                         <a
+                            data-aos="fade-up"
+                            data-aos-duration="400"
+                            data-aos-delay={i * 150}
                             href={`/insight/${article.fields.slug}`}
                             class="group flex gap-3 items-center w-full md:w-[600px] duration-200 outline-none border-b border-zinc-200 pb-5"
                         >
@@ -63,7 +67,7 @@ const sortedProjects = [...(projects || [])]
                                 />
                             )}
                             <div class="flex flex-col gap-1">
-                                <p class="group-hover:text-violet-500 text-[1rem] md:text-[1.15rem] font-medium text-zinc-900 w-full duration-200">
+                                <p class="group-hover:text-orange-500 text-[1rem] md:text-[1.15rem] font-medium text-zinc-900 w-full duration-200">
                                     {article.fields.title}
                                 </p>
                                 <p class="text-[.875rem] text-zinc-500 leading-6">
@@ -81,5 +85,5 @@ const sortedProjects = [...(projects || [])]
             }
         </div>
     </div>
-    <Footer/>
+    <Footer />
 </Layout>
