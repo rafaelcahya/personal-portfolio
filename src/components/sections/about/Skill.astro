@@ -14,7 +14,7 @@ const { articles } = Astro.props;
             <div class="flex flex-wrap gap-2">
                 {article.fields.skills?.map((skill: any) => (
                     <div>
-                        <p class="text-sm px-4 py-2 bg-orange-100 text-zinc-900 w-max rounded-full">
+                        <p class="text-sm px-4 py-2 bg-orange-100 hover:bg-orange-400 text-zinc-900 hover:text-white w-max rounded-full duration-200">
                             {skill}
                         </p>
                     </div>

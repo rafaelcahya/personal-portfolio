@@ -92,7 +92,7 @@ export default function QAList({ articles }) {
                                         </p>
                                     ))}
                             </div>
-                            <p className="group-hover:text-violet-500 text-[1.25rem] font-medium text-zinc-900 w-full duration-200">
+                            <p className="group-hover:text-orange-500 text-[1.25rem] font-medium text-zinc-900 w-full duration-200">
                                 {article.fields.title}
                             </p>
                             <p className="text-[1rem] text-zinc-500 leading-6 w-full line-clamp-3">
