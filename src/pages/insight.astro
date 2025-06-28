@@ -1,22 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { getEntries } from "../lib/contentful";
-import moment from "moment";
+// import { getEntries } from "../lib/contentful";
+// import moment from "moment";
 
-import FloatingBar from "../components/common/FloatingBar.astro";
-import Footer from "../components/common/Footer.astro";
+// import FloatingBar from "../components/common/FloatingBar.astro";
+// import Footer from "../components/common/Footer.astro";
 
 import Error from "./404.astro"
 
-const projects = await getEntries("uniqueCode");
+// const projects = await getEntries("uniqueCode");
 
-const sortedProjects = [...(projects || [])]
-    .filter((p) => !!p?.fields?.publishedDate)
-    .sort((a, b) => {
-        const aDate = new Date(String(a.fields.publishedDate)).getTime();
-        const bDate = new Date(String(b.fields.publishedDate)).getTime();
-        return bDate - aDate;
-    });
+// const sortedProjects = [...(projects || [])]
+//     .filter((p) => !!p?.fields?.publishedDate)
+//     .sort((a, b) => {
+//         const aDate = new Date(String(a.fields.publishedDate)).getTime();
+//         const bDate = new Date(String(b.fields.publishedDate)).getTime();
+//         return bDate - aDate;
+//     });
 ---
 
 <Layout>
