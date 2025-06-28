@@ -1,0 +1,125 @@
+---
+import QAFilters from "./components/qaFilter.tsx";
+const { articles } = Astro.props;
+
+const sortedArticles = [...articles].sort(
+    (a, b) =>
+        new Date(b.fields?.createdDate ?? "").getTime() -
+        new Date(a.fields?.createdDate ?? "").getTime(),
+);
+
+const filterOptions = ["all", "manual", "automation"];
+const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
+---
+
+<div
+    data-aos="fade"
+    class="flex flex-col gap-10 md:gap-20 py-32 sm:py-44 px-5 sm:px-10 lg:px-20 2xl:px-40"
+>
+    <header
+        data-aos="fade-up"
+        data-aos-duration="400"
+        class="flex flex-col gap-2 items-start md:items-center text-start md:text-center"
+    >
+        <p
+            class="text-zinc-500 text-[1rem] sm:text-[1.2rem] tracking-[0.015rem]"
+        >
+            My Projects
+        </p>
+        <h1
+            class="font-medium text-zinc-900 text-[1.5rem] sm:text-[2.5rem] leading-8 sm:leading-[3.2rem] tracking-[0.015rem] w-full lg:w-1/2"
+        >
+            Ensure every feature works flawlessly with{" "}
+            <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-purple-400"
+            >
+                robust testing
+            </span>
+        </h1>
+    </header>
+
+    <!-- Filter Buttons -->
+    <div
+        data-aos="fade-up"
+        data-aos-duration="400"
+        class="flex gap-4 justify-center items-center"
+    >
+        {
+            filterOptions.map((type) => (
+                <button
+                    data-filter-button
+                    data-filter={type}
+                    class={`px-4 py-2 rounded-full text-sm border cursor-pointer duration-200 ${
+                        type === "all"
+                            ? "bg-orange-500 text-white border-orange-500"
+                            : "bg-[#f0f0f0]/60 backdrop-blur-[25px] border-[1.5px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] border-white/50"
+                    }`}
+                >
+                    {capitalize(type)}
+                </button>
+            ))
+        }
+    </div>
+
+    <!-- Island interactivity -->
+    <QAFilters client:load />
+
+    <!-- Articles -->
+    <section class="flex flex-wrap gap-20 justify-center">
+        {
+            sortedArticles.map((article, i) => {
+                const type = Array.isArray(article.fields.type)
+                    ? article.fields.type.join(", ")
+                    : article.fields.type || "";
+                return (
+                    article.fields.thumbnailImage && (
+                        <div
+                            data-aos="fade-up"
+                            data-aos-duration="400"
+                            data-aos-offset="0"
+                            data-aos-delay={i * 100}
+                            data-type={type}
+                            data-article-card
+                            class=""
+                        >
+                            <a
+                                href={`quality-assurance/${article.fields.slug}`}
+                                class="group flex flex-col gap-2 w-full md:w-[500px] duration-200 outline-none"
+                            >
+                                <div class="flex-1 flex flex-col gap-1">
+                                    <div class="flex flex-wrap gap-x-3 gap-y-2 text-[12px]">
+                                        {(article.fields.tags || [])
+                                            .slice(0, 2)
+                                            .map((tag: string) => (
+                                                <p class="uppercase text-zinc-500 tracking-wider">
+                                                    {tag}
+                                                </p>
+                                            ))}
+                                    </div>
+                                    <p class="font-medium text-[1.2rem] sm:text-[1.4rem] text-zinc-900 group-hover:text-orange-500 duration-200">
+                                        {article.fields.title}
+                                    </p>
+                                    <p class="text-[1rem] text-zinc-500 line-clamp-3 w-full">
+                                        {article.fields.outline}
+                                    </p>
+                                </div>
+                                <div class="flex-1 p-3 bg-white/50 backdrop-blur-[25px] border-[1.5px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] border-white/50 rounded-2xl duration-200">
+                                    <img
+                                        src={`https:${article.fields.thumbnailImage.fields.file.url}`}
+                                        alt={
+                                            article.fields.thumbnailImage.fields
+                                                .title
+                                        }
+                                        class="lazyload rounded-xl"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                </div>
+                            </a>
+                        </div>
+                    )
+                );
+            })
+        }
+    </section>
+</div>

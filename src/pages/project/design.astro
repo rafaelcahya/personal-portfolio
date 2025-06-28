@@ -1,8 +1,8 @@
 ---
-import FloatingBar from "../components/common/FloatingBar.astro";
-import { getEntries } from "../lib/contentful";
-import Layout from "../layouts/Layout.astro";
-import Footer from "../components/common/Footer.astro";
+import FloatingBar from "../../components/common/FloatingBar.astro";
+import Footer from "../../components/common/Footer.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getEntries } from "../../lib/contentful";
 
 const projects = await getEntries("uiux");
 
@@ -55,10 +55,11 @@ const sortedProjects = [...(projects || [])]
 
                     return (
                         <a
-                            href={`/design/${slug}`}
+                            href={`design/${slug}`}
                             data-aos="fade-up"
+                            data-aos-offset="0"
                             data-aos-duration="400"
-                            data-aos-delay={index * 150}
+                            data-aos-delay={index * 100}
                             class="group flex flex-col gap-3 w-full sm:w-[500px]"
                         >
                             <div class="flex flex-col gap-1 w-full">
@@ -71,7 +72,7 @@ const sortedProjects = [...(projects || [])]
                             </div>
 
                             {imageUrl && (
-                                <div class="bg-white p-2 shadow-xl group-hover:shadow-2xl group-hover:shadow-zinc-500/15 shadow-zinc-500/10 rounded-2xl duration-200">
+                                <div class="p-3 bg-white/50 backdrop-blur-[25px] border-[1.5px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] border-white/50 rounded-2xl duration-200">
                                     <img
                                         src={imageUrl}
                                         alt={imageAlt}

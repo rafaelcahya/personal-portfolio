@@ -9,8 +9,8 @@ const { articles } = Astro.props;
     data-aos-delay="150"
     class="flex flex-col gap-5"
 >
-    <p class="font-medium text-[24px] text-zinc-900">Timeline</p>
-    <div class="relative border-l-[1.5px] border-zinc-200">
+    <p class="font-medium text-lg sm:text-xl text-zinc-400">Timeline</p>
+    <div class="relative space-y-10">
         {
             articles.map((article: any) => {
                 const sortedTimeline = [
@@ -18,28 +18,29 @@ const { articles } = Astro.props;
                 ].sort(
                     (a, b) =>
                         new Date(a.fields.startDate || "").getTime() -
-                        new Date(b.fields.startDate || "").getTime()
+                        new Date(b.fields.startDate || "").getTime(),
                 );
                 return sortedTimeline.map((tl: any) => (
-                    <div class="mb-10 ml-4">
-                        <div class="absolute w-3 h-3 bg-orange-500 rounded-full -left-1.5 mt-1.5" />
-                        <div class="flex flex-col gap-2">
+                    <div class="">
+                        <div class="flex flex-col gap-2 text-lg sm:text-xl">
                             <div class="flex items-center gap-3">
                                 <div class="font-medium flex items-center text-zinc-900">
                                     {moment(tl.fields.startDate).format(
-                                        "MMM YYYY"
+                                        "MMM YYYY",
                                     )}{" "}
                                     –{" "}
                                     {tl.fields.endDate ? (
-                                        moment(tl.fields.endDate).format(
-                                            "MMM YYYY"
+                                    moment(tl.fields.endDate).format(
+                                            "MMM YYYY",
                                         )
                                     ) : (
                                         <p class="text-orange-500 ml-1">Now</p>
                                     )}
                                 </div>
                             </div>
-                            <p class="text-zinc-600">{tl.fields.description}</p>
+                            <p class="text-zinc-600 text-lg sm:text-xl">
+                                {tl.fields.description}
+                            </p>
                         </div>
                     </div>
                 ));

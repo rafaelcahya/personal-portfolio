@@ -128,3 +128,16 @@
         transform: rotate(360deg);
     }
 }
+#bg-overlay {
+    clip-path: circle(0% at 50% 50%);
+    transition: background 0.3s ease;
+}
+
+#page-background {
+    position: relative;
+}
+
+#page-background>* {
+    position: relative;
+    z-index: 10;
+}
