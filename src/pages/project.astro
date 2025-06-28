@@ -24,6 +24,9 @@ const projectMenu = [
         icon: "https://res.cloudinary.com/djvyifjgz/image/upload/v1742015474/ed9qxnuh8b81riq0x8xw.svg",
     },
 ];
+
+if (!Array.isArray(projectMenu) || projectMenu.length === 0)
+    throw Astro.redirect("/404", 302);
 ---
 
 <Layout>

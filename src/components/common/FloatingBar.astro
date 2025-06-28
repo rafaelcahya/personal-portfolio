@@ -17,6 +17,9 @@ const navs = [
     //     link: "/insight",
     // },
 ];
+
+if (!Array.isArray(navs) || navs.length === 0)
+    throw Astro.redirect("/404", 302);
 ---
 
 <div

@@ -1,6 +1,9 @@
 ---
 import moment from "moment";
 const { articles } = Astro.props;
+
+if (!Array.isArray(articles) || articles.length === 0)
+    throw Astro.redirect("/404", 302);
 ---
 
 <section
@@ -30,7 +33,7 @@ const { articles } = Astro.props;
                                     )}{" "}
                                     –{" "}
                                     {tl.fields.endDate ? (
-                                    moment(tl.fields.endDate).format(
+                                        moment(tl.fields.endDate).format(
                                             "MMM YYYY",
                                         )
                                     ) : (

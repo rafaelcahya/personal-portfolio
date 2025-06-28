@@ -1,11 +1,19 @@
 ---
 const { articles } = Astro.props;
+
+if (!Array.isArray(articles) || articles.length === 0)
+    throw Astro.redirect("/404", 302);
 ---
 
 <div>
     {
         articles.map((article: any) => (
-            <div data-aos="fade-right" data-aos-duration='400' data-aos-delay='200' class="flex flex-col gap-5">
+            <div
+                data-aos="fade-right"
+                data-aos-duration="400"
+                data-aos-delay="200"
+                class="flex flex-col gap-5"
+            >
                 <p class="text-[1rem] sm:text-[1.2rem] text-zinc-500">
                     Let's Get in Touch
                 </p>
