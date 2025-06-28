@@ -1,27 +1,27 @@
 ---
-import { getEntries } from "../../lib/contentful";
+// import { getEntries } from "../../lib/contentful";
 import Layout from "../../layouts/Layout.astro";
 
-import FloatingBar from "../../components/common/FloatingBar.astro";
-import SingleInsightTitle from "../../components/sections/insight/SingleInsightTitle.astro";
-import SingleInsightThumbnail from "../../components/sections/insight/SingleInsightThumbnail.astro";
-import SingleInsightContent from "../../components/sections/insight/SingleInsightContent.astro";
-import Footer from "../../components/common/Footer.astro";
+// import FloatingBar from "../../components/common/FloatingBar.astro";
+// import SingleInsightTitle from "../../components/sections/insight/SingleInsightTitle.astro";
+// import SingleInsightThumbnail from "../../components/sections/insight/SingleInsightThumbnail.astro";
+// import SingleInsightContent from "../../components/sections/insight/SingleInsightContent.astro";
+// import Footer from "../../components/common/Footer.astro";
 
 import Error from "../404.astro"
 
-const { slug } = Astro.params;
-const insights = await getEntries("uniqueCode");
-const singleInsight = insights.find((item) => item.fields.slug === slug);
+// const { slug } = Astro.params;
+// const insights = await getEntries("uniqueCode");
+// const singleInsight = insights.find((item) => item.fields.slug === slug);
 
-export async function getStaticPaths() {
-    const insights = await getEntries("uniqueCode");
+// export async function getStaticPaths() {
+//     const insights = await getEntries("uniqueCode");
 
-    return insights.map((item) => ({
-        params: { slug: item.fields.slug },
-        props: { singleProject: item },
-    }));
-}
+//     return insights.map((item) => ({
+//         params: { slug: item.fields.slug },
+//         props: { singleProject: item },
+//     }));
+// }
 ---
 
 <Layout>
