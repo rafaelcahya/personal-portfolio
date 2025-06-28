@@ -2,7 +2,7 @@
 const { articles } = Astro.props;
 
 if (!Array.isArray(articles) || articles.length === 0) {
-    throw Astro.redirect("/404", 302);
+    return Astro.redirect("/404", 302);
 }
 ---
 
