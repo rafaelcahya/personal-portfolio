@@ -3,6 +3,10 @@ import GithubLogo from "../../../../assets/GithubLogo";
 import Markdown from "../../../../lib/markdown/Markdown";
 
 const { singleProjects } = Astro.props;
+
+if (!singleProjects || !singleProjects.fields) {
+    return Astro.redirect("/404", 302);
+}
 ---
 
 <section

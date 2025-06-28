@@ -1,5 +1,9 @@
 ---
 const { singleProjects } = Astro.props;
+
+if (!singleProjects || !singleProjects.fields) {
+    return Astro.redirect("/404", 302);
+}
 ---
 
 <section>

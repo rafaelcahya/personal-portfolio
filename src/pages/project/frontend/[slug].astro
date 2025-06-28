@@ -9,6 +9,7 @@ import SingleProjectHeader from '../components/singleProjectHeader.astro';
 
 const { slug } = Astro.params;
 const projects = await getEntries("frontend");
+
 const singleProject = projects.find((item) => item.fields.slug === slug);
 
 export async function getStaticPaths() {

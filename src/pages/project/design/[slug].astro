@@ -1,11 +1,10 @@
 ---
-import FloatingBar from '../../../components/common/FloatingBar.astro';
-import Footer from '../../../components/common/Footer.astro';
-import Layout from '../../../layouts/Layout.astro';
-import { getEntries } from '../../../lib/contentful';
-import SingleProjectContent from '../components/singleProjectContent.astro';
-import SingleProjectHeader from '../components/singleProjectHeader.astro';
-
+import FloatingBar from "../../../components/common/FloatingBar.astro";
+import Footer from "../../../components/common/Footer.astro";
+import Layout from "../../../layouts/Layout.astro";
+import { getEntries } from "../../../lib/contentful";
+import SingleProjectContent from "../components/singleProjectContent.astro";
+import SingleProjectHeader from "../components/singleProjectHeader.astro";
 
 const { slug } = Astro.params;
 const projects = await getEntries("uiux");

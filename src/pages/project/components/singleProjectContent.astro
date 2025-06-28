@@ -1,6 +1,10 @@
 ---
 const { singleProjects } = Astro.props;
 
+if (!singleProjects || !singleProjects.fields) {
+    return Astro.redirect("/404", 302);
+}
+
 // Fungsi deteksi warna terang
 function isLightColor(hexColor: any) {
     const rgb = parseInt(hexColor.slice(1), 16);

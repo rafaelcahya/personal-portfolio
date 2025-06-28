@@ -1,5 +1,10 @@
 ---
 const { singleProjects } = Astro.props;
+
+if (!singleProjects || !singleProjects.fields) {
+    return Astro.redirect("/404", 302);
+}
+
 const { fields } = singleProjects || {};
 
 const { title, hyperlink, linkname, liveStatus, headerMockup } = fields || {};
