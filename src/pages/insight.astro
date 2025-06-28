@@ -6,6 +6,8 @@ import moment from "moment";
 import FloatingBar from "../components/common/FloatingBar.astro";
 import Footer from "../components/common/Footer.astro";
 
+import Error from "./404.astro"
+
 const projects = await getEntries("uniqueCode");
 
 const sortedProjects = [...(projects || [])]
@@ -18,7 +20,8 @@ const sortedProjects = [...(projects || [])]
 ---
 
 <Layout>
-    <FloatingBar />
+    <Error />
+    <!-- <FloatingBar />
     <div
         class="flex flex-col gap-10 md:gap-20 py-32 sm:py-44 px-5 sm:px-10 lg:px-20 2xl:px-40 tracking-[0.015rem]"
     >
@@ -85,5 +88,5 @@ const sortedProjects = [...(projects || [])]
             }
         </div>
     </div>
-    <Footer />
+    <Footer /> -->
 </Layout>
