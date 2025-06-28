@@ -8,7 +8,7 @@ import Layout from "../../layouts/Layout.astro";
 // import SingleInsightContent from "../../components/sections/insight/SingleInsightContent.astro";
 // import Footer from "../../components/common/Footer.astro";
 
-import Error from "../404.astro"
+import Error from "../404.astro";
 
 // const { slug } = Astro.params;
 // const insights = await getEntries("uniqueCode");
@@ -22,6 +22,10 @@ import Error from "../404.astro"
 //         props: { singleProject: item },
 //     }));
 // }
+
+export async function getStaticPaths() {
+    return [];
+}
 ---
 
 <Layout>
