@@ -9,9 +9,10 @@ const profiles = await getEntries("profile");
     <div class="flex items-center gap-8">
         {
             [
+                { label: "Home", href: "/" },
                 { label: "About", href: "/about" },
                 { label: "Project", href: "/project" },
-                { label: "Insights", href: "/insight" },
+                // { label: "Insights", href: "/insight" },
             ].map((item) => (
                 <div class="flex items-center gap-2">
                     <a
