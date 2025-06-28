@@ -2,8 +2,9 @@
 import QAFilters from "./components/qaFilter.jsx";
 const { articles } = Astro.props;
 
-if (!Array.isArray(articles) || articles.length === 0)
-    throw Astro.redirect("/404", 302);
+if (!Array.isArray(articles) || articles.length === 0) {
+    return Astro.redirect("/404", 302);
+}
 
 const sortedArticles = [...articles].sort(
     (a, b) =>

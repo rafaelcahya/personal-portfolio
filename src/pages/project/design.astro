@@ -6,8 +6,9 @@ import { getEntries } from "../../lib/contentful";
 
 const projects = await getEntries("uiux");
 
-if (!Array.isArray(projects) || projects.length === 0)
-    throw Astro.redirect("/404", 302);
+if (!Array.isArray(projects) || projects.length === 0) {
+    return Astro.redirect("/404", 302);
+}
 
 const sortedProjects = [...(projects || [])]
     .filter((p) => !!p?.fields?.date)

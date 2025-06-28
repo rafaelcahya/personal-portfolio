@@ -18,8 +18,9 @@ const navs = [
     // },
 ];
 
-if (!Array.isArray(navs) || navs.length === 0)
-    throw Astro.redirect("/404", 302);
+if (!Array.isArray(navs) || navs.length === 0) {
+    return Astro.redirect("/404", 302);
+}
 ---
 
 <div
