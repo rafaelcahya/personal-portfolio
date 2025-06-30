@@ -1,9 +1,9 @@
 ---
 import FloatingBar from "../../components/common/FloatingBar.astro";
+import Contact from "../../components/local/home/Contact.astro";
+import Profile from "../../components/local/home/Profile.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getEntries } from "../../lib/contentful";
-import Contact from "./components/Contact.astro";
-import Profile from "./components/Profile.astro";
 
 const profile = await getEntries("profile");
 ---

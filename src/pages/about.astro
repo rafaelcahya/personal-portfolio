@@ -2,10 +2,10 @@
 import { getEntries } from "../lib/contentful";
 import Layout from "../layouts/Layout.astro";
 import FloatingBar from "../components/common/FloatingBar.astro";
-import Bio from "./about/Bio.astro";
-import Timeline from "./about/Timeline.astro";
-import Skill from "./about/Skill.astro";
 import Footer from "../components/common/Footer.astro";
+import Bio from "../components/local/about/Bio.astro";
+import Timeline from "../components/local/about/Timeline.astro";
+import Skill from "../components/local/about/Skill.astro";
 
 const profile = await getEntries("profile");
 ---
