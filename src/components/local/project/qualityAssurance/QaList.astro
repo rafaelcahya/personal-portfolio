@@ -1,6 +1,6 @@
 ---
-import QAFilters from "./components/qaFilter.jsx";
 const { articles } = Astro.props;
+import QAFilters from "./qaFilter.jsx";
 
 if (!Array.isArray(articles) || articles.length === 0) {
     return Astro.redirect("/404", 302);
