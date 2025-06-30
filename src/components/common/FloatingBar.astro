@@ -30,6 +30,10 @@ if (!Array.isArray(navs) || navs.length === 0) {
         navs.map((nav) => (
             <a
                 href={nav.link}
+                onclick={`gtag('event', 'click', {
+                    event_category: 'Floating Bar',
+                    event_label: '${nav.name} button'
+                })`}
                 class="hover:text-orange-500 py-1.5 px-3 my-1.5 duration-100"
             >
                 {nav.name}
