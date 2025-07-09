@@ -22,16 +22,14 @@ const sortedProjects = [...(projects || [])]
     <FloatingBar />
     <div
         data-aos="fade"
-        class="flex flex-col gap-10 md:gap-20 py-44 pb-56 px-5 sm:px-10 lg:px-20 2xl:px-40 mx-auto w-full max-w-[90rem]"
+        class="flex flex-col gap-10 md:gap-32 py-48 px-5 sm:px-10 w-full max-w-[120rem] mx-auto"
     >
         <header
             data-aos="fade-up"
             data-aos-duration="400"
-            class="flex flex-col gap-2 w-full md:w-[900px] mx-auto"
+            class="flex flex-col gap-2 w-full lg:w-[900px] mx-auto"
         >
-            <p
-                class="text-zinc-500 text-[1rem] sm:text-[1.2rem] tracking-[0.015rem]"
-            >
+            <p class="text-zinc-500 text-[1rem] sm:text-[1.2rem]">
                 My Projects
             </p>
             <h1
@@ -45,6 +43,7 @@ const sortedProjects = [...(projects || [])]
                 </span>
             </h1>
         </header>
+
         <section class="flex flex-wrap gap-20 justify-center">
             {
                 sortedProjects.map((article: any, index: number) => (
@@ -56,16 +55,16 @@ const sortedProjects = [...(projects || [])]
                         href={`/project/frontend/${article.fields.slug}`}
                     >
                         {article.fields.thumbnailImage && (
-                            <div class="group flex flex-col gap-3 w-full sm:w-[500px] h-full">
+                            <div class="group flex flex-col gap-3 w-full md:w-[500px] lg:w-[425px] xl:w-[500px] 2xl:w-[650px] even:mt-0 lg:even:mt-20">
                                 <div class="flex-1 flex flex-col gap-1">
                                     <p class="font-medium text-[1.2rem] sm:text-[1.4rem] text-zinc-900 group-hover:text-orange-500 duration-200">
                                         {article.fields.title}
                                     </p>
-                                    <p class="text-[1rem] text-zinc-500 line-clamp-3 w-full">
+                                    <p class="w-full xl:w-[500px] text-[1rem] text-zinc-500 line-clamp-2">
                                         {article.fields.outline}
                                     </p>
                                 </div>
-                                <div class="flex-1 p-3 bg-white/50  backdrop-blur-[25px] border-[1.5px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] border-white/50 rounded-2xl duration-200">
+                                <div class="flex-1 p-2 bg-white/50 backdrop-blur-[25px] border-[1.5px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] group-hover:shadow-[0px_100px_200px_25px_rgba(113,113,123,0.2)] border-white/50 rounded-2xl duration-200">
                                     <img
                                         src={
                                             "https:" +

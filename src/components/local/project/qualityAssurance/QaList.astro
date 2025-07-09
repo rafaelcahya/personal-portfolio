@@ -18,20 +18,16 @@ const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 
 <div
     data-aos="fade"
-    class="flex flex-col gap-10 md:gap-20 py-32 sm:py-44 px-5 sm:px-10 lg:px-20 2xl:px-40"
+    class="flex flex-col gap-10 md:gap-32 py-48 px-5 sm:px-10 w-full max-w-[120rem] mx-auto"
 >
     <header
         data-aos="fade-up"
         data-aos-duration="400"
-        class="flex flex-col gap-2 items-start md:items-center text-start md:text-center"
+        class="flex flex-col gap-2 w-full lg:w-[900px] mx-auto"
     >
-        <p
-            class="text-zinc-500 text-[1rem] sm:text-[1.2rem] tracking-[0.015rem]"
-        >
-            My Projects
-        </p>
+        <p class="text-zinc-500 text-[1rem] sm:text-[1.2rem]">My Projects</p>
         <h1
-            class="font-medium text-zinc-900 text-[1.5rem] sm:text-[2.5rem] leading-8 sm:leading-[3.2rem] tracking-[0.015rem] w-full lg:w-1/2"
+            class="text-zinc-900 text-[2rem] sm:text-[2.5rem] md:text-[4rem] leading-[2.5rem] sm:leading-[3rem] md:leading-[4.5rem]"
         >
             Ensure every feature works flawlessly with{" "}
             <span
@@ -77,50 +73,46 @@ const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
                     : article.fields.type || "";
                 return (
                     article.fields.thumbnailImage && (
-                        <div
+                        <a
                             data-aos="fade-up"
                             data-aos-duration="400"
                             data-aos-offset="0"
                             data-aos-delay={i * 100}
                             data-type={type}
                             data-article-card
-                            class=""
+                            href={`/project/qualityAssurance/${article.fields.slug}`}
+                            class="group flex flex-col gap-3 w-full md:w-[500px] lg:w-[425px] xl:w-[500px] 2xl:w-[650px] even:mt-0 lg:even:mt-20"
                         >
-                            <a
-                                href={`/project/qualityAssurance/${article.fields.slug}`}
-                                class="group flex flex-col gap-2 w-full md:w-[500px] duration-200 outline-none"
-                            >
-                                <div class="flex-1 flex flex-col gap-1">
-                                    <div class="flex flex-wrap gap-x-3 gap-y-2 text-[12px]">
-                                        {(article.fields.tags || [])
-                                            .slice(0, 2)
-                                            .map((tag: string) => (
-                                                <p class="uppercase text-zinc-500 tracking-wider">
-                                                    {tag}
-                                                </p>
-                                            ))}
-                                    </div>
-                                    <p class="font-medium text-[1.2rem] sm:text-[1.4rem] text-zinc-900 group-hover:text-orange-500 duration-200">
-                                        {article.fields.title}
-                                    </p>
-                                    <p class="text-[1rem] text-zinc-500 line-clamp-3 w-full">
-                                        {article.fields.outline}
-                                    </p>
+                            <div class="flex flex-col gap-1">
+                                <div class="flex flex-wrap gap-x-3 gap-y-2 text-[12px]">
+                                    {(article.fields.tags || [])
+                                        .slice(0, 2)
+                                        .map((tag: string) => (
+                                            <p class="uppercase text-zinc-500 tracking-wider">
+                                                {tag}
+                                            </p>
+                                        ))}
                                 </div>
-                                <div class="flex-1 p-3 bg-white/50 backdrop-blur-[25px] border-[1.5px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] border-white/50 rounded-2xl duration-200">
-                                    <img
-                                        src={`https:${article.fields.thumbnailImage.fields.file.url}`}
-                                        alt={
-                                            article.fields.thumbnailImage.fields
-                                                .title
-                                        }
-                                        class="lazyload rounded-xl"
-                                        loading="lazy"
-                                        decoding="async"
-                                    />
-                                </div>
-                            </a>
-                        </div>
+                                <p class="font-medium text-[1.2rem] sm:text-[1.4rem] text-zinc-900 group-hover:text-orange-500 duration-200">
+                                    {article.fields.title}
+                                </p>
+                                <p class="text-[1rem] text-zinc-500 line-clamp-3">
+                                    {article.fields.outline}
+                                </p>
+                            </div>
+                            <div class="p-2 bg-white/50 backdrop-blur-[25px] border-[1.5px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] group-hover:shadow-[0px_100px_200px_25px_rgba(113,113,123,0.2)] border-white/50 rounded-2xl duration-200">
+                                <img
+                                    src={`https:${article.fields.thumbnailImage.fields.file.url}`}
+                                    alt={
+                                        article.fields.thumbnailImage.fields
+                                            .title
+                                    }
+                                    class="lazyload rounded-xl"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </div>
+                        </a>
                     )
                 );
             })
