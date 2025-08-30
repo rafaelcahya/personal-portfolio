@@ -11,8 +11,8 @@ export default function QAFilters() {
 				const filter = btn.getAttribute("data-filter") || "";
 
 				// update button style
-				buttons.forEach(b => b.classList.remove("bg-orange-500", "text-white", "border-orange-500"));
-				btn.classList.add("bg-orange-500", "text-white", "border-orange-500");
+				buttons.forEach(b => b.classList.remove("bg-violet-500", "text-white", "border-violet-500"));
+				btn.classList.add("bg-violet-500", "text-white", "border-violet-500");
 
 				// filter cards
 				allData.forEach(card => {

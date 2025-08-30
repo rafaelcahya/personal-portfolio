@@ -9,12 +9,14 @@ const projectMenu = [
             "Experience the power of great design, crafted for real-world users.",
         link: "/project/design",
         icon: "https://res.cloudinary.com/djvyifjgz/image/upload/v1742015474/xu0rshxmawooh71v5dii.svg",
+        ctaButton: "See the Craft in Action",
     },
     {
         name: "Frontend Development",
         description: "Take a peek at my Frontend work, check it out!",
         link: "/project/frontend",
         icon: "https://res.cloudinary.com/djvyifjgz/image/upload/v1742015474/eixy6vs1k8qkz9gjlo5w.svg",
+        ctaButton: "Check the Code Magic",
     },
     {
         name: "QA Manual & Automation",
@@ -22,6 +24,7 @@ const projectMenu = [
             "Uncover the behind-the-scenes magic of QA that keeps everything running smoothly.",
         link: "/project/qualityAssurance",
         icon: "https://res.cloudinary.com/djvyifjgz/image/upload/v1742015474/ed9qxnuh8b81riq0x8xw.svg",
+        ctaButton: "See QA in Action",
     },
 ];
 
@@ -57,9 +60,9 @@ if (!Array.isArray(projectMenu) || projectMenu.length === 0) {
                         data-aos="fade-up"
                         data-aos-duration="400"
                         data-aos-delay={index * 150}
-                        class="group bg-white/50 backdrop-blur-[25px] border-[1.5px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] border-white/50 p-5 w-full lg:w-[350px] rounded-2xl cursor-pointer"
+                        class="group bg-[#F7F7F7] p-7 w-full lg:w-[350px] rounded-4xl cursor-pointer"
                     >
-                        <div class="flex flex-col gap-3">
+                        <div class="flex flex-col gap-3 h-full">
                             <img
                                 src={project.icon}
                                 alt=""
@@ -67,15 +70,32 @@ if (!Array.isArray(projectMenu) || projectMenu.length === 0) {
                                 height="40"
                                 loading="lazy"
                                 decoding="async"
-                                class="w-[40px] h-[40px] bg-orange-200/50 rounded-full p-2 group-hover:rotate-45 duration-200"
+                                class="w-[24px] h-[24px] group-hover:rotate-45 duration-200"
                             />
-                            <div class="flex flex-col gap-1">
-                                <p class="font-medium text-zinc-700 group-hover:text-orange-500 text-[1.15rem] tracking-[0.015rem] duration-100">
+                            <div class="flex-1 flex flex-col gap-1">
+                                <p class="font-medium text-zinc-700 group-hover:text-violet-500 text-[1.15rem] tracking-[0.015rem] duration-100">
                                     {project.name}
                                 </p>
                                 <p class="text-zinc-500 lg:text-[rem] tracking-[0.015rem]">
                                     {project.description}
                                 </p>
+                            </div>
+                            <div class="flex items-center gap-2 group-hover:gap-4 duration-200">
+                                <p>{project.ctaButton}</p>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="2"
+                                    stroke="currentColor"
+                                    class="size-5"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                                    />
+                                </svg>
                             </div>
                         </div>
                     </a>

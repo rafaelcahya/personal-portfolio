@@ -12,13 +12,13 @@ if (!Array.isArray(articles) || articles.length === 0) {
     data-aos-delay="300"
     class="flex flex-col gap-5"
 >
-    <p class="font-medium text-[24px] text-zinc-400">Skills</p>
+    <p class="font-semibold text-2xl">Skills ⚡</p>
     {
         articles.map((article: any) => (
             <div class="flex flex-wrap gap-2">
                 {article.fields.skills?.map((skill: any) => (
                     <div>
-                        <p class="text-xl px-4 py-2 bg-[#f0f0f0]/60 hover:bg-orange-100 backdrop-blur-[25px] border-[1.5px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] border-white/50 hover:text-orange-500 w-max rounded-full duration-200">
+                        <p class="text-lg px-4 py-2 bg-[#f7f7f7] hover:bg-violet-500 hover:text-white text-zinc-900 w-max rounded-full duration-200">
                             {skill}
                         </p>
                     </div>

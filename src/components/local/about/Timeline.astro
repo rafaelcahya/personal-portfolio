@@ -13,38 +13,41 @@ if (!Array.isArray(articles) || articles.length === 0) {
     data-aos-delay="150"
     class="flex flex-col gap-5"
 >
-    <p class="font-medium text-lg sm:text-xl text-zinc-400">Timeline</p>
-    <div class="relative space-y-10">
+    <p class="font-semibold text-2xl">Work Experiences 👨‍💻</p>
+    <div class="relative space-y-2">
         {
             articles.map((article: any) => {
                 const sortedTimeline = [
                     ...(article.fields.timeline || []),
                 ].sort(
                     (a, b) =>
-                        new Date(a.fields.startDate || "").getTime() -
-                        new Date(b.fields.startDate || "").getTime(),
+                        new Date(b.fields.startDate || "").getTime() -
+                        new Date(a.fields.startDate || "").getTime(),
                 );
-                return sortedTimeline.map((tl: any) => (
-                    <div class="">
-                        <div class="flex flex-col gap-2 text-lg sm:text-xl">
-                            <div class="flex items-center gap-3">
-                                <div class="font-medium flex items-center text-zinc-900">
-                                    {moment(tl.fields.startDate).format(
-                                        "MMM YYYY",
-                                    )}{" "}
-                                    –{" "}
-                                    {tl.fields.endDate ? (
-                                        moment(tl.fields.endDate).format(
-                                            "MMM YYYY",
-                                        )
-                                    ) : (
-                                        <p class="text-orange-500 ml-1">Now</p>
-                                    )}
-                                </div>
-                            </div>
-                            <p class="text-zinc-600 text-lg sm:text-xl">
-                                {tl.fields.description}
-                            </p>
+                return sortedTimeline.map((tl: any, index: number) => (
+                    <div
+                        class={`flex flex-col sm:flex-row items-start justify-between gap-2 text-lg px-5 py-4 rounded-2xl 
+                            ${index === 0 ? "relative bg-violet-500 text-white shadow-2xl shadow-black/20 z-10" : "bg-[#f7f7f7] -z-10"}`}
+                    >
+                        <p
+                            class={`font-medium w-full md:w-1/2 ${index === 0 ? "text-white" : "text-zinc-900"}`}
+                        >
+                            {tl.fields.role}
+                        </p>
+                        <p
+                            class={`w-full md:w-1/3 ${index === 0 ? "text-white" : "text-zinc-600"}`}
+                        >
+                            {tl.fields.companyName}
+                        </p>
+                        <div
+                            class={`flex items-center justify-start md:justify-end w-full md:w-1/3 ${index === 0 ? "text-white" : "text-zinc-600"}`}
+                        >
+                            {moment(tl.fields.startDate).format("MMM YYYY")} –{" "}
+                            {tl.fields.endDate ? (
+                                moment(tl.fields.endDate).format("MMM YYYY")
+                            ) : (
+                                <p class="ml-1">Present</p>
+                            )}
                         </div>
                     </div>
                 ));
